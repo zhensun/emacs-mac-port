@@ -3439,7 +3439,7 @@ mac_set_frame_window_background (struct frame *f, unsigned long color)
   green = GREEN_FROM_ULONG (color) / 255.0;
   blue = BLUE_FROM_ULONG (color) / 255.0;
 
-  [window setBackgroundColor:[NSColor colorWithDeviceRed:red green:green
+  [window setBackgroundColor:[NSColor colorWithCalibratedRed:red green:green
 						    blue:blue alpha:1.0]];
 }
 
@@ -9671,7 +9671,7 @@ mac_svg_load_image (struct frame *f, struct image *img, unsigned char *contents,
   NSData *data =
     [NSData dataWithBytesNoCopy:contents length:size freeWhenDone:NO];
   NSColor *backgroundColor =
-    [NSColor colorWithDeviceRed:(color->red / 65535.0)
+    [NSColor colorWithCalibratedRed:(color->red / 65535.0)
 			  green:(color->green / 65535.0)
 			   blue:(color->blue / 65535.0)
 			  alpha:1.0];
